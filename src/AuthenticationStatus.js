@@ -1,6 +1,7 @@
 //import React from 'react';
 import React, { useEffect } from 'react';
 import { useMsal, useIsAuthenticated } from '@azure/msal-react';
+import { InteractionStatus } from '@azure/msal-browser';
 import { loginRequest } from './authConfig'; 
 import { useNavigate } from 'react-router-dom';
 
@@ -35,15 +36,18 @@ const SignOutButton = () => {
 };
 
 const AuthenticationStatus = () => {
+    const { instance } = useMsal();
     const isAuthenticated = useIsAuthenticated();
-    const navigate = useNavigate(); 
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
-        // Si el usuario está autenticado, redirige al dashboard principal
-        if (isAuthenticated) {
-            navigate('/dashboard');
-        }
-    }, [isAuthenticated, navigate]);
+        instance.addEventCallback((event) => {
+            if (event.eventType === InteractionStatus.LoginSuccess && isAuthenticated) {
+                console.log("logueado");
+                navigate("/Datav");
+            }
+        });
+    }, [isAuthenticated, navigate, instance]);
     return (
         <div>
             {isAuthenticated ? <SignOutButton /> : <SignInButton />}
