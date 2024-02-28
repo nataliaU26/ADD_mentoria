@@ -1,9 +1,11 @@
 // src/authConfig.js
+//"https://login.microsoftonline.com/8442b655-1fb3-4e98-9426-ac5282d6af51/oauth2/v2.0/authorize"
+
 export const msalConfig = {
     auth: {
-        clientId: "7d6bbc08-42af-481b-9bce-b4a521cdfd45",
-        authority: "https://login.microsoftonline.com/21ae5a36-8b25-4a5e-95b3-a1181c56061c/oauth2/v2.0/authorize",
-        redirectUri: "https://proud-bush-0271aa20f.4.azurestaticapps.net"
+        clientId: "73f2ba71-7a26-4e70-ad04-85d9d997686f",
+        authority: "https://B2CFLOWUSER.b2clogin.com/B2CFLOWUSER.onmicrosoft.com/B2C_1_registerLWT/oauth2/v2.0/authorize",
+        redirectUri: "https://delightful-sand-0c067f410.4.azurestaticapps.net"
     }
 };
 
