@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AuthenticationStatus from './AuthenticationStatus';
-import Datav from './Datav';
+import AuthenticationStatus from './layout/AuthenticationStatus';
+import Datav from './components/Datav';
+import './App.css';
 
 function App() {
   return (
